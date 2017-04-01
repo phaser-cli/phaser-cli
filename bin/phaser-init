@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+
+const chalk = require('chalk')
+const leftpad = require('left-pad')
+const program = require('commander')
+
+/**
+ * Usage.
+ */
+program
+  .usage('<template-name> [project-name]')
+
+/**
+ * Help.
+ */
+program.on('--help', () => {
+  console.log(leftpad('Examples:', 2))
+  console.log()
+  console.log(chalk.gray(leftpad('# create a new project with an official template', 4)))
+  console.log(leftpad('$ phaser init webpack my-project', 4))
+  console.log()
+  console.log(chalk.gray(leftpad('# create a new project straight from a github template', 4)))
+  console.log(leftpad('$ phaser init username/repo my-project', 4))
+  console.log()
+})
+
+/**
+ * Display help if no arguments have been specified.
+ */
+function help () {
+  program.parse(process.argv)
+  if (program.args.length < 1) return program.help()
+}
+
+help()
+
