@@ -5,7 +5,8 @@
   "preferGlobal": true,
   "bin": {
     "phaser": "bin/phaser",
-    "phaser-init": "bin/phaser-init"
+    "phaser-init": "bin/phaser-init",
+    "phaser-list": "bin/phaser-list"
   },
   "main": "lib/index.js",
   "scripts": {
