@@ -34,5 +34,5 @@ program
   .version(require('../package.json').version)
   .usage('<command> [options]')
   .command('init', 'generate a new project from a template')
-  .command('list', 'generate a new project from a template')
+  .command('list', 'list available official phaser-cli templates')
   .parse(process.argv)
