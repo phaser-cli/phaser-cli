@@ -116,9 +116,9 @@ function run () {
   } else {
     checkVersion(() => {
       if (!hasSlash) {
-        // Use official templates
-        const officialTemplate = 'phaser-templates/' + template
-        downloadAndGenerate(officialTemplate)
+        // Use recommended templates
+        const recommendedTemplate = 'phaser-templates/' + template
+        downloadAndGenerate(recommendedTemplate)
       } else {
         downloadAndGenerate(template)
       }

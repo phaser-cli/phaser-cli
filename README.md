@@ -25,12 +25,12 @@ $ phaser init webpack my-project
 
 The above command pulls the template from [phaser-templates/webpack](https://github.com/phaser-templates/webpack), prompts for some information, and generates the project at `./my-project/`.
 
-### Official Templates
+### Recommended Templates
 
-The purpose of the official phaser-cli templates are to provide a quick way to
+The purpose of the recommended phaser-cli templates are to provide a quick way to
 get you started on a Phaser project.
 
-All official project templates are repos in the [phaser-templates organization](https://github.com/phaser-templates). When a new template is added to the organization, you will be able to run `phaser init <template-name> <project-name>` to use that template. You can also run `phaser list` to see all available official templates.
+All project templates that we recommend are repos in the [phaser-templates organization](https://github.com/phaser-templates). When a new template is added to the organization, you will be able to run `phaser init <template-name> <project-name>` to use that template. You can also run `phaser list` to see all available recommended templates.
 
 Current available templates include:
 
@@ -40,7 +40,7 @@ Current available templates include:
 
 ### Custom Templates
 
-It's unlikely to make everyone happy with the official templates. You can simply fork an official template and then use it via `phaser-cli` with:
+It's unlikely to make everyone happy with the recommended templates. You can simply fork a recommended template and then use it via `phaser-cli` with:
 
 ``` bash
 phaser init username/repo my-project

@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-const logger = require('../lib/logger')
 const request = require('request')
 const chalk = require('chalk')
+const leftPad = require('left-pad')
+const logger = require('../lib/logger')
 
 /**
  * Padding.
@@ -26,7 +27,7 @@ request({
   if (err) logger.fatal(err)
   const requestBody = JSON.parse(body)
   if (Array.isArray(requestBody)) {
-    console.log('  Available official templates:')
+    console.log(leftPad('Available recommended templates:', 2))
     console.log()
     requestBody.forEach(function (repo) {
       console.log(
