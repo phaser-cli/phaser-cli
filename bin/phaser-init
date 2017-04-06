@@ -32,7 +32,7 @@ program
 program.on('--help', () => {
   console.log(leftpad('Examples:', 2))
   console.log()
-  console.log(chalk.gray(leftpad('# create a new project with an official template', 4)))
+  console.log(chalk.gray(leftpad('# create a new project with a recommended template', 4)))
   console.log(leftpad('$ phaser init webpack my-project', 4))
   console.log()
   console.log(chalk.gray(leftpad('# create a new project straight from a github template', 4)))
@@ -78,7 +78,6 @@ console.log()
 process.on('exit', function () {
   console.log()
 })
-
 
 if (exists(to)) {
   inquirer
