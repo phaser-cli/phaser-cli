@@ -1,5 +1,7 @@
 # phaser-cli
 
+[![JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+
 A simple CLI for scaffolding Phaser projects. Based on
 [vue-cli](https://github.com/vuejs/vue-cli) by Evan You.
 
@@ -34,8 +36,8 @@ All project templates that we recommend are repos in the [phaser-templates organ
 
 Current available templates include:
 
-- [webpack](https://github.com/phaser-templates/webpack) - A full-featured Webpack setup with hot reload and linting.
-
+- [webpack](https://github.com/phaser-templates/webpack) - A full-featured Webpack setup with linting
+- [webpack-simple](https://github.com/phaser-templates/webpack-simple) - A basic Webpack setup
 - [simple](https://github.com/phaser-templates/simple) - The simplest possible Phaser setup in a single HTML file
 
 ### Custom Templates
