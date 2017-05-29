@@ -7,7 +7,7 @@ A simple CLI for scaffolding Phaser projects. Based on
 
 ### Installation
 
-Prerequisites: [Node.js](https://nodejs.org/en/) (>=6.x preferred), npm version 3+ and [Git](https://git-scm.com/).
+Prerequisites: [Node.js](https://nodejs.org/en/) (>=6.x required), npm version 3+ and [Git](https://git-scm.com/).
 
 ``` bash
 $ npm install -g phaser-cli
