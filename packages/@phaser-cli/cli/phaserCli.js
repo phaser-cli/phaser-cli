@@ -5,6 +5,8 @@ const commander = require('commander')
 const fs = require('fs-extra')
 const os = require('os')
 const path = require('path')
+const spawn = require('cross-spawn')
+
 const packageJson = require('./package.json')
 
 let projectName
@@ -55,7 +57,29 @@ const createProject = name => {
 }
 
 const run = (root, appName) => {
-  // TODO
+  const dependencies = ['phaser']
+
+  console.log('Installing packages. This might take a couple of minutes.')
+
+  install(root, dependencies)
+}
+
+const install = (root, dependencies) => {
+  const command = 'npm'
+  const args = ['install', '--save', '--loglevel', 'error'].concat(dependencies)
+
+  return new Promise((resolve, reject) => {
+    const child = spawn(command, args, { stdio: 'inherit' })
+    child.on('close', code => {
+      if (code !== 0) {
+        reject(new Error({
+          command: `${command} ${args.join(' ')}`
+        }))
+        return
+      }
+      resolve()
+    })
+  })
 }
 
 createProject(projectName)
