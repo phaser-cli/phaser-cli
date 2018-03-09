@@ -1,4 +1,4 @@
-# phaser-scripts
+# @phaser-cli/scripts
 
 This package includes scripts and configuration used by [Phaser CLI][1].
 

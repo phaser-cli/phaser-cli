@@ -1,4 +1,4 @@
-# phaser-cli
+# @phaser-cli/cli
 
 This package includes the global command for [Phaser CLI][1].
 
