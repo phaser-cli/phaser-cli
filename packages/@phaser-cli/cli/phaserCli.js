@@ -80,7 +80,13 @@ function install (root, useYarn, dependencies) {
 
   if (useYarn) {
     command = 'yarnpkg'
-    args = ['add'].concat(dependencies)
+    args = ['add']
+
+    if (!env.isYarnOnline()) {
+      args = args.concat(['--offline'])
+    }
+
+    args = args.concat(dependencies)
   } else {
     command = 'npm'
     args = ['install', '--save', '--loglevel', 'error'].concat(dependencies)
