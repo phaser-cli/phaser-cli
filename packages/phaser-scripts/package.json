@@ -1,0 +1,23 @@
+{
+  "name": "@phaser-cli/scripts",
+  "version": "1.0.0",
+  "description": "Configuration and scripts for Phaser CLI",
+  "repository": "phaser-cli/phaser-cli",
+  "license": "MIT",
+  "engines": {
+    "node": ">=6"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "file-loader": "^1.1.11",
+    "raw-loader": "^0.5.1",
+    "standard": "^11.0.0",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.10",
+    "webpack-dev-server": "^3.1.0"
+  },
+  "devDependencies": {
+    "phaser": "^3.2.0"
+  }
+}
