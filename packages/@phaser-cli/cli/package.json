@@ -1,5 +1,5 @@
 {
-  "name": "phaser-cli",
+  "name": "@phaser-cli/cli",
   "version": "1.0.0",
   "keywords": [
     "phaser"

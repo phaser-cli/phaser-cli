@@ -51,6 +51,11 @@ const createProject = name => {
   fs.writeFileSync(path.join(root, 'package.json'), JSON.stringify(packageJson, null, 2) + os.EOL)
 
   process.chdir(root)
+  run(root, appName)
+}
+
+const run = (root, appName) => {
+  // TODO
 }
 
 createProject(projectName)
