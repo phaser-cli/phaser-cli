@@ -16,6 +16,7 @@ module.exports = (appPath, appName) => {
   }
 
   fs.copySync(templatePath, appPath)
+  fs.moveSync(path.join(appPath, 'gitignore'), path.join(appPath, '.gitignore'))
 
   console.log(`Success! Created ${appName} at ${appPath}`)
 }
