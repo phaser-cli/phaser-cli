@@ -1,8 +1,9 @@
 {
   "name": "@phaser-cli/cli",
-  "version": "1.0.0",
+  "version": "1.0.0-0",
   "keywords": [
-    "phaser"
+    "phaser",
+    "cli"
   ],
   "description": "Create Phaser projects with ease",
   "repository": "phaser-cli/phaser-cli",

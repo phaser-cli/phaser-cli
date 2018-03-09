@@ -1,6 +1,10 @@
 {
   "name": "@phaser-cli/scripts",
-  "version": "1.0.0",
+  "version": "1.0.0-0",
+  "keywords": [
+    "phaser",
+    "scripts"
+  ],
   "description": "Configuration and scripts for Phaser CLI",
   "repository": "phaser-cli/phaser-cli",
   "license": "MIT",
