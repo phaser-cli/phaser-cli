@@ -14,7 +14,9 @@
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
+    "chalk": "^2.3.2",
     "file-loader": "^1.1.11",
+    "fs-extra": "^5.0.0",
     "raw-loader": "^0.5.1",
     "standard": "^11.0.0",
     "webpack": "^4.1.1",
