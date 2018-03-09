@@ -1,0 +1,13 @@
+{
+  "name": "@pahser-cli/cli-shared-utils",
+  "version": "1.0.0-0",
+  "keywords": [
+    "phaser",
+    "cli",
+    "cli-shared-utils"
+  ],
+  "description": "Shared utilities for phaser-cli packages",
+  "repository": "phaser-cli/phaser-cli",
+  "main": "index.js",
+  "license": "MIT"
+}
