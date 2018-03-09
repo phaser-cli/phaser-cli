@@ -1,4 +1,5 @@
 const { execSync } = require('child_process')
+const dns = require('dns')
 
 exports.hasYarn = () => {
   try {
@@ -7,4 +8,12 @@ exports.hasYarn = () => {
   } catch (err) {
     return false
   }
+}
+
+exports.isYarnOnline = () => {
+  return new Promise(resolve => {
+    dns.lookup('registry.yarnpkg.com', err => {
+      resolve(err == null)
+    })
+  })
 }
