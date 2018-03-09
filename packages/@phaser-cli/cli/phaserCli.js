@@ -7,6 +7,8 @@ const os = require('os')
 const path = require('path')
 const spawn = require('cross-spawn')
 
+const { env } = require('@phaser-cli/cli-shared-utils')
+
 const packageJson = require('./package.json')
 
 let projectName
@@ -18,6 +20,7 @@ const program = new commander.Command(packageJson.name)
   .action(name => {
     projectName = name
   })
+  .option('--use-npm')
   .parse(process.argv)
 
 if (typeof projectName === 'undefined') {
@@ -35,7 +38,9 @@ if (typeof projectName === 'undefined') {
   process.exit(1)
 }
 
-const createProject = name => {
+createProject(projectName, program.useNpm)
+
+function createProject (name, useNpm) {
   const root = path.resolve(name)
   const appName = path.basename(root)
 
@@ -50,23 +55,36 @@ const createProject = name => {
     private: true
   }
 
-  fs.writeFileSync(path.join(root, 'package.json'), JSON.stringify(packageJson, null, 2) + os.EOL)
+  fs.writeFileSync(
+    path.join(root, 'package.json'),
+    JSON.stringify(packageJson, null, 2) + os.EOL
+  )
+
+  const useYarn = useNpm ? false : env.hasYarn()
 
   process.chdir(root)
-  run(root, appName)
+  run(root, appName, useYarn)
 }
 
-const run = (root, appName) => {
+function run (root, appName, useYarn) {
   const dependencies = ['phaser']
 
   console.log('Installing packages. This might take a couple of minutes.')
 
-  install(root, dependencies)
+  install(root, useYarn, dependencies)
 }
 
-const install = (root, dependencies) => {
-  const command = 'npm'
-  const args = ['install', '--save', '--loglevel', 'error'].concat(dependencies)
+function install (root, useYarn, dependencies) {
+  let command
+  let args
+
+  if (useYarn) {
+    command = 'yarnpkg'
+    args = ['add'].concat(dependencies)
+  } else {
+    command = 'npm'
+    args = ['install', '--save', '--loglevel', 'error'].concat(dependencies)
+  }
 
   return new Promise((resolve, reject) => {
     const child = spawn(command, args, { stdio: 'inherit' })
@@ -81,5 +99,3 @@ const install = (root, dependencies) => {
     })
   })
 }
-
-createProject(projectName)
