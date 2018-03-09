@@ -1,0 +1,21 @@
+{
+  "name": "phaser-cli",
+  "version": "1.0.0",
+  "keywords": [
+    "phaser"
+  ],
+  "description": "Create Phaser projects with ease",
+  "repository": "phaser-cli/phaser-cli",
+  "license": "MIT",
+  "engines": {
+    "node": ">=6"
+  },
+  "bin": {
+    "phaser": "./index.js"
+  },
+  "dependencies": {
+    "chalk": "^2.3.2",
+    "commander": "^2.15.0",
+    "fs-extra": "^5.0.0"
+  }
+}
