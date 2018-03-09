@@ -86,7 +86,9 @@ function install (root, useYarn, dependencies) {
       args = args.concat(['--offline'])
     }
 
-    args = args.concat(dependencies)
+    args = args
+      .concat(dependencies)
+      .concat(['--cwd', root])
   } else {
     command = 'npm'
     args = ['install', '--save', '--loglevel', 'error'].concat(dependencies)
