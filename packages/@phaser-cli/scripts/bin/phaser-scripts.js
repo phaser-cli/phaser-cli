@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-'use-strict'
+'use strict'
 
 const spawn = require('cross-spawn')
 const args = process.argv.slice(2)
