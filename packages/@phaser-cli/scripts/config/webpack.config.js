@@ -1,15 +1,15 @@
-const path = require('path')
 const webpack = require('webpack')
+const paths = require('./paths')
 
 module.exports = {
   entry: {
     app: [
       'phaser',
-      path.resolve(__dirname, 'src/main.js')
+      paths.appEntry
     ]
   },
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: paths.appBuild,
     publicPath: '/build/',
     filename: '[name].js'
   },
@@ -18,7 +18,7 @@ module.exports = {
       {
         test: [/\.js$/],
         use: 'babel-loader',
-        include: path.resolve(__dirname, 'src')
+        include: paths.appSrc
       },
       {
         test: [/\.(png|jpg|gif)$/],
@@ -50,7 +50,7 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src')
+      '@': paths.appSrc
     }
   }
 }
