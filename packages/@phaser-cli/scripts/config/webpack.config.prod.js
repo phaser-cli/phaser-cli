@@ -12,7 +12,7 @@ module.exports = {
   },
   output: {
     path: paths.appBuild,
-    publicPath: paths.appBuild,
+    publicPath: '/',
     filename: '[name].js'
   },
   module: {
