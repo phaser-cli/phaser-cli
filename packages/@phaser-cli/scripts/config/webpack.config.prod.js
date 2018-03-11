@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const paths = require('./paths')
 
 module.exports = {
+  mode: 'production',
   entry: {
     app: [
       'phaser',
@@ -11,7 +12,7 @@ module.exports = {
   },
   output: {
     path: paths.appBuild,
-    publicPath: '/',
+    publicPath: paths.appBuild,
     filename: '[name].js'
   },
   module: {

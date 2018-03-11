@@ -12,7 +12,8 @@ module.exports = (appPath, appName) => {
   appPackage.dependencies = appPackage.dependencies || {}
 
   appPackage.scripts = {
-    start: 'phaser-scripts start'
+    start: 'phaser-scripts start',
+    build: 'phaser-scripts build'
   }
 
   fs.writeFileSync(
