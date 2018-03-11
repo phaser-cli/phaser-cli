@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const paths = require('./paths')
 
@@ -10,7 +11,7 @@ module.exports = {
   },
   output: {
     path: paths.appBuild,
-    publicPath: '/build/',
+    publicPath: '/',
     filename: '[name].js'
   },
   module: {
@@ -46,6 +47,10 @@ module.exports = {
     new webpack.DefinePlugin({
       CANVAS_RENDERER: true,
       WEBGL_RENDERER: true
+    }),
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: paths.appHtml
     })
   ],
   resolve: {

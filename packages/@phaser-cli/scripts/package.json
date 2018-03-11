@@ -20,6 +20,7 @@
     "chalk": "^2.3.2",
     "file-loader": "^1.1.11",
     "fs-extra": "^5.0.0",
+    "html-webpack-plugin": "^3.0.6",
     "raw-loader": "^0.5.1",
     "standard": "^11.0.0",
     "webpack": "^4.1.1",
