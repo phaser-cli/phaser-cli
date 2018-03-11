@@ -13,7 +13,7 @@ module.exports = {
   output: {
     path: paths.appBuild,
     publicPath: '/',
-    filename: '[name].js'
+    filename: 'js/[name].bundle.js'
   },
   module: {
     rules: [
@@ -23,12 +23,18 @@ module.exports = {
         include: paths.appSrc
       },
       {
+        loader: 'file-loader',
         test: [/\.(png|jpg|gif)$/],
-        use: 'file-loader'
+        options: {
+          name: 'assets/[name].[hash:8].[ext]'
+        }
       },
       {
+        loader: 'raw-loader',
         test: [/\.(vert|frag)$/],
-        use: 'raw-loader'
+        options: {
+          name: 'assets/[name].[hash:8].[ext]'
+        }
       }
     ]
   },
