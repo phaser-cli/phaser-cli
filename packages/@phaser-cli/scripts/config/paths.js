@@ -10,5 +10,5 @@ module.exports = {
   appBuild: resolveApp('build'),
   appEntry: resolveApp('src/main.js'),
   appSrc: resolveApp('src'),
-  appHtml: resolveApp('src/index.html')
+  appHtml: resolveApp('index.html')
 }
