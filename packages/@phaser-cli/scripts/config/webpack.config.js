@@ -64,5 +64,8 @@ module.exports = {
     alias: {
       '@': paths.appSrc
     }
+  },
+  performance: {
+    hints: false
   }
 }
