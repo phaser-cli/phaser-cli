@@ -5,7 +5,7 @@
     "phaser",
     "cli"
   ],
-  "description": "Create Phaser projects with ease",
+  "description": "Create Phaser projects with no build configuration",
   "repository": "phaser-cli/phaser-cli",
   "license": "MIT",
   "engines": {
@@ -16,8 +16,8 @@
   },
   "dependencies": {
     "@phaser-cli/cli-shared-utils": "^1.0.0-2",
+    "cac": "^4.4.3",
     "chalk": "^2.3.2",
-    "commander": "^2.15.0",
     "cross-spawn": "^6.0.5",
     "fs-extra": "^5.0.0"
   }

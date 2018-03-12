@@ -1,7 +1,7 @@
 'use strict'
 
+const cac = require('cac')
 const chalk = require('chalk')
-const commander = require('commander')
 const fs = require('fs-extra')
 const os = require('os')
 const path = require('path')
@@ -9,37 +9,34 @@ const spawn = require('cross-spawn')
 
 const { env } = require('@phaser-cli/cli-shared-utils')
 
-const packageJson = require('./package.json')
+const handleCreate = (input, flags) => {
+  const projectName = input[0]
 
-let projectName
+  if (!projectName) {
+    console.error('You must specify a project name:')
+    console.log(`  phaser create ${chalk.green('<project-name>')} [options]`)
+    console.log()
+    console.error('For example:')
+    console.log(`  phaser create ${chalk.green('my-project')}`)
+    console.log()
+    process.exit(1)
+  }
 
-const program = new commander.Command(packageJson.name)
-  .version(packageJson.version)
-  .arguments('<project-directory>')
-  .usage(`${chalk.green('<project-directory>')} [options]`)
-  .action(name => {
-    projectName = name
-  })
-  .option('--use-npm')
-  .parse(process.argv)
-
-if (typeof projectName === 'undefined') {
-  console.error('Please specify the project directory:')
-  console.log(
-    `  ${chalk.cyan(program.name())} ${chalk.green('<project-directory>')}`
-  )
-  console.log()
-  console.log('For example:')
-  console.log(`  ${chalk.cyan(program.name())} ${chalk.green('my-phaser-project')}`)
-  console.log()
-  console.log(
-    `Run ${chalk.cyan(`${program.name()} --help`)} to see all options.`
-  )
-  process.exit(1)
+  createProject(projectName, flags.useNpm)
 }
 
-createProject(projectName, program.useNpm)
+const cli = cac()
 
+cli
+  .command('*', 'create a new phaser project', handleCreate)
+
+cli
+  .command('create', 'create a new phaser project', handleCreate)
+  .option('use-npm', 'use npm instead of yarn')
+
+cli.parse()
+
+// Create a new Phaser project in the specified directory
 function createProject (name, useNpm) {
   const root = path.resolve(name)
   const appName = path.basename(root)
@@ -66,6 +63,7 @@ function createProject (name, useNpm) {
   run(root, appName, useYarn)
 }
 
+// Runs the init script in @phaser-cli/scripts
 function run (root, appName, useYarn) {
   const dependencies = ['phaser', '@phaser-cli/scripts']
 
@@ -89,6 +87,7 @@ function run (root, appName, useYarn) {
     })
 }
 
+// Installs all necessary dependencies
 function install (root, useYarn, dependencies) {
   let command
   let args
