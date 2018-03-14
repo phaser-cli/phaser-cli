@@ -4,6 +4,7 @@
 const chalk = require('chalk')
 const fs = require('fs-extra')
 const inquirer = require('inquirer')
+const os = require('os')
 const path = require('path')
 
 const paths = require('../config/paths')
@@ -36,7 +37,7 @@ inquirer
           .map(file => path.join(ownPath, folder, file))
           .filter(file => fs.lstatSync(file).isFile())
       )
-    })
+    }, [])
 
     folders.forEach(folder => fs.mkdirSync(path.join(appPath, folder)))
     files.forEach(file => {
@@ -59,9 +60,18 @@ inquirer
 
     const ownPackageName = ownPackage.name
 
-    if (appPackage.devDependencies[ownPackageName]) {
+    if (appPackage.devDependencies) {
+      if (appPackage.devDependencies[ownPackageName]) {
+        console.log(`  Removing ${chalk.cyan(ownPackageName)} from devDependencies`)
+        delete appPackage.devDependencies[ownPackageName]
+      }
+    }
+
+    appPackage.dependencies = appPackage.dependencies || {}
+
+    if (appPackage.dependencies[ownPackageName]) {
       console.log(`  Removing ${chalk.cyan(ownPackageName)} from dependencies`)
-      delete appPackage.devDependencies[ownPackageName]
+      delete appPackage.dependencies[ownPackageName]
     }
 
     delete appPackage.scripts['eject']
@@ -71,7 +81,7 @@ inquirer
       appPackage.scripts[key].replace('phaser-scripts ', 'node scripts/')
     })
 
-    fs.writeFileSync(path.join(appPath, 'package.json'), appPackage)
+    fs.writeFileSync(path.join(appPath, 'package.json'), JSON.stringify(appPackage, null, 2) + os.EOL)
 
     console.log(chalk.green('Ejected successfully!'))
   })
