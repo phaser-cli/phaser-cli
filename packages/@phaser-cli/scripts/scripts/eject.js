@@ -78,7 +78,7 @@ inquirer
 
     Object.keys(appPackage.scripts).forEach(key => {
       console.log(`Replacing script ${chalk.cyan(`"phaser-scripts ${key}"`)} with ${chalk.cyan(`"node scripts/${key}.js"`)}`)
-      appPackage.scripts[key].replace('phaser-scripts ', 'node scripts/')
+      appPackage.scripts[key] = appPackage.scripts[key].replace('phaser-scripts ', 'node scripts/')
     })
 
     fs.writeFileSync(path.join(appPath, 'package.json'), JSON.stringify(appPackage, null, 2) + os.EOL)
