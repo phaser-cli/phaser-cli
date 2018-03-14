@@ -68,6 +68,7 @@ inquirer
     }
 
     appPackage.dependencies = appPackage.dependencies || {}
+    appPackage.devDependencies = appPackage.devDependencies || {}
 
     if (appPackage.dependencies[ownPackageName]) {
       console.log(`  Removing ${chalk.cyan(ownPackageName)} from dependencies`)
