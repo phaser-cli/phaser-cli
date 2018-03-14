@@ -81,6 +81,11 @@ inquirer
       appPackage.scripts[key] = appPackage.scripts[key].replace('phaser-scripts ', 'node scripts/')
     })
 
+    Object.keys(ownPackage.dependencies).forEach(key => {
+      console.log(`Adding ${chalk.cyan(key)} to devDependencies`)
+      appPackage.devDependencies[key] = ownPackage.dependencies[key]
+    })
+
     fs.writeFileSync(path.join(appPath, 'package.json'), JSON.stringify(appPackage, null, 2) + os.EOL)
 
     console.log(chalk.green('Ejected successfully!'))
