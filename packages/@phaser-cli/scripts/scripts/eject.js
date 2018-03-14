@@ -53,4 +53,25 @@ inquirer
       console.log(`Adding ${chalk.cyan(file.replace(ownPath, ''))} to the project`)
       fs.writeFileSync(file.replace(ownPath, appPath), content)
     })
+
+    const appPackage = require(path.join(appPath, 'package.json'))
+    const ownPackage = require(path.join(ownPath, 'package.json'))
+
+    const ownPackageName = ownPackage.name
+
+    if (appPackage.devDependencies[ownPackageName]) {
+      console.log(`  Removing ${chalk.cyan(ownPackageName)} from dependencies`)
+      delete appPackage.devDependencies[ownPackageName]
+    }
+
+    delete appPackage.scripts['eject']
+
+    Object.keys(appPackage.scripts).forEach(key => {
+      console.log(`Replacing script ${chalk.cyan(`"phaser-scripts ${key}"`)} with ${chalk.cyan(`"node scripts/${key}.js"`)}`)
+      appPackage.scripts[key].replace('phaser-scripts ', 'node scripts/')
+    })
+
+    fs.writeFileSync(path.join(appPath, 'package.json'), appPackage)
+
+    console.log(chalk.green('Ejected successfully!'))
   })
