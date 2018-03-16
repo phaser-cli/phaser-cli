@@ -4,6 +4,7 @@
     "packages/@phaser-cli/*"
   ],
   "devDependencies": {
+    "lerna": "^2.9.0",
     "standard": "^11.0.0"
   }
 }
