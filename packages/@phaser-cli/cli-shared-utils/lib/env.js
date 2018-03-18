@@ -10,7 +10,12 @@ exports.hasYarn = () => {
   }
 }
 
-exports.isYarnOnline = () => {
+exports.isYarnOnline = (useYarn) => {
+  // npm doesn't have offline cache so just assume it's online
+  if (!useYarn) {
+    return true
+  }
+
   return new Promise(resolve => {
     dns.lookup('registry.yarnpkg.com', err => {
       resolve(err == null)

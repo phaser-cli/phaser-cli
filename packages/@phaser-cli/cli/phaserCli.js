@@ -70,25 +70,28 @@ function run (root, appName, useYarn) {
   console.log('Installing packages. This might take a couple of minutes.')
   console.log(`Installing ${chalk.cyan('phaser')} and ${chalk.cyan('@phaser-cli/scripts')}`)
 
-  install(root, useYarn, dependencies)
-    .then(() => {
-      const scriptsPath = path.resolve(
-        process.cwd(),
-        'node_modules/@phaser-cli/scripts/scripts/init.js'
-      )
+  env.isYarnOnline(useYarn)
+    .then(isOnline => {
+      install(root, useYarn, dependencies, isOnline)
+        .then(() => {
+          const scriptsPath = path.resolve(
+            process.cwd(),
+            'node_modules/@phaser-cli/scripts/scripts/init.js'
+          )
 
-      const init = require(scriptsPath)
-      init(root, appName)
-    })
-    .catch(err => {
-      console.log('Aborting installation.')
-      console.log(chalk.red('Unexpted error. Please report it as a bug:'))
-      console.log(err)
+          const init = require(scriptsPath)
+          init(root, appName)
+        })
+        .catch(err => {
+          console.log('Aborting installation.')
+          console.log(chalk.red('Unexpted error. Please report it as a bug:'))
+          console.log(err)
+        })
     })
 }
 
 // Installs all necessary dependencies
-function install (root, useYarn, dependencies) {
+function install (root, useYarn, dependencies, isOnline) {
   let command
   let args
 
@@ -96,7 +99,7 @@ function install (root, useYarn, dependencies) {
     command = 'yarnpkg'
     args = ['add']
 
-    if (!env.isYarnOnline()) {
+    if (!isOnline) {
       args = args.concat(['--offline'])
     }
 
