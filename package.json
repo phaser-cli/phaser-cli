@@ -3,6 +3,9 @@
   "workspaces": [
     "packages/@phaser-cli/*"
   ],
+  "scripts": {
+    "publish": "tasks/publish.sh"
+  },
   "devDependencies": {
     "lerna": "^2.9.0",
     "standard": "^11.0.0"
