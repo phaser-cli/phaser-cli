@@ -15,7 +15,7 @@
     "phaser-scripts": "./bin/phaser-scripts.js"
   },
   "dependencies": {
-    "babel-core": "^6.26.0",
+    "@babel/core": "^7.0.0-beta.42",
     "babel-loader": "^7.1.4",
     "chalk": "^2.3.2",
     "file-loader": "^1.1.11",
@@ -25,7 +25,6 @@
     "raw-loader": "^0.5.1",
     "standard": "^11.0.0",
     "webpack": "^4.1.1",
-    "webpack-cli": "^2.0.10",
     "webpack-dev-server": "^3.1.0"
   },
   "devDependencies": {
