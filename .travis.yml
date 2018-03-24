@@ -7,7 +7,7 @@ cache:
   - node_modules
 deploy:
   provider: script
-  script: bash tasks/publish.sh
+  script: bash scripts/ci/deploy.sh
   on:
     branch: dev
 env:
