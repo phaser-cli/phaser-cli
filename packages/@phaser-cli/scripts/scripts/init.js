@@ -9,13 +9,21 @@ module.exports = (appPath, appName) => {
   const ownPackageName = require(path.join(__dirname, '..', 'package.json')).name
   const ownPath = path.join(appPath, 'node_modules', ownPackageName)
   const appPackage = require(path.join(appPath, 'package.json'))
-
-  appPackage.dependencies = appPackage.dependencies || {}
+  const phaserScripts = ['@phaser-cli/scripts']
 
   appPackage.scripts = {
     start: 'phaser-scripts start',
     build: 'phaser-scripts build',
     eject: 'phaser-scripts eject'
+  }
+
+  appPackage.dependencies = appPackage.dependencies || {}
+  appPackage.devDependencies = appPackage.devDependencies || {}
+
+  // Move phaser-scripts to dev dependencies
+  if (appPackage.dependencies[phaserScripts]) {
+    appPackage.devDependencies[phaserScripts] = appPackage.dependencies[phaserScripts]
+    delete appPackage.dependencies[phaserScripts]
   }
 
   fs.writeFileSync(
