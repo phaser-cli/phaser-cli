@@ -49,7 +49,8 @@ function createProject (name, useNpm) {
   const packageJson = {
     name: appName,
     version: '0.1.0',
-    private: true
+    private: true,
+    scripts: {}
   }
 
   fs.writeFileSync(
