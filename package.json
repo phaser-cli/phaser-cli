@@ -4,6 +4,7 @@
     "packages/@phaser-cli/*"
   ],
   "scripts": {
+    "lerna": "lerna publish --skip-npm",
     "publish": "tasks/publish.sh"
   },
   "devDependencies": {
