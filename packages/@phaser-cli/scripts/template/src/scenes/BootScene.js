@@ -1,7 +1,7 @@
 import { Scene } from 'phaser'
 import logo from '../assets/logo.png'
 
-export default class GameScene extends Scene {
+export default class BootScene extends Scene {
   constructor () {
     super({ key: 'BootScene' })
   }
@@ -11,6 +11,6 @@ export default class GameScene extends Scene {
   }
 
   create () {
-    this.scene.start('GameScene')
+    this.scene.start('PlayScene')
   }
 }

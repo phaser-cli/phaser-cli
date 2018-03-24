@@ -1,8 +1,8 @@
 import { Scene } from 'phaser'
 
-export default class GameScene extends Scene {
+export default class PlayScene extends Scene {
   constructor () {
-    super({ key: 'GameScene' })
+    super({ key: 'PlayScene' })
   }
 
   create () {
