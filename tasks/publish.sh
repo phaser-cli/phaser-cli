@@ -13,10 +13,5 @@ set -x
 cd ..
 root_path=$PWD
 
-if [ -n "$(git status --porcelain)" ]; then
-  echo "Your git status is not clean. Aborting.";
-  exit 1;
-fi
-
 # Publish
-./node_modules/.bin/lerna publish --independent "$@"
+./node_modules/.bin/lerna publish --skip-git --yes
