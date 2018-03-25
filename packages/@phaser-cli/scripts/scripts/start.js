@@ -4,13 +4,15 @@ process.env.NODE_ENV = 'development'
 
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
-const webpackConfig = require('../config/webpack.config')
+const config = require('../config/webpack.config')
 
 const port = parseInt(process.env.PORT, 10) || 8080
 const host = process.env.HOST || '0.0.0.0'
 
-const compiler = webpack(Object.assign({}, webpackConfig, { mode: 'development' }))
-const server = new WebpackDevServer(compiler)
+const server = new WebpackDevServer(webpack(config), {
+  mode: 'development',
+  hot: true
+})
 
 server.listen(port, host, () => {
   console.log(`Starting server on ${host}:${port}`)
