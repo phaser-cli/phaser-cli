@@ -5,7 +5,7 @@
   ],
   "scripts": {
     "lerna": "lerna publish --skip-npm",
-    "deploy": "scripts/ci/deploy.sh"
+    "lint": "standard"
   },
   "devDependencies": {
     "lerna": "^2.9.0",
