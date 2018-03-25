@@ -17,7 +17,10 @@ const options = {
 }
 
 WebpackDevServer.addDevServerEntrypoints(config, options)
-const compiler = webpack(Object.assign({}, config, { mode: 'development' }))
+const compiler = webpack(Object.assign({}, config, {
+  mode: 'development',
+  devtool: 'cheap-source-map'
+}))
 const server = new WebpackDevServer(compiler, options)
 
 server.listen(port, host, () => {
