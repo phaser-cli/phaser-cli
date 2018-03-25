@@ -1,6 +1,7 @@
 # Phaser CLI
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Build Status](https://travis-ci.org/phaser-cli/phaser-cli.svg?branch=dev)](https://travis-ci.org/phaser-cli/phaser-cli)
 
 Create Phaser projects with no build configuration.
 
