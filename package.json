@@ -4,7 +4,7 @@
     "packages/@phaser-cli/*"
   ],
   "scripts": {
-    "lerna": "lerna publish --skip-npm --yes",
+    "lerna": "lerna publish -m \":rocket: publish\" --skip-npm --yes",
     "lint": "standard"
   },
   "devDependencies": {
