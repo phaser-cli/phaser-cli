@@ -9,9 +9,16 @@ const config = require('../config/webpack.config')
 const port = parseInt(process.env.PORT, 10) || 8080
 const host = process.env.HOST || '0.0.0.0'
 
-const server = new WebpackDevServer(webpack(Object.assign({}, config, { mode: 'development' })), {
-  hot: true
-})
+const options = {
+  host,
+  port,
+  hot: true,
+  inline: true
+}
+
+WebpackDevServer.addDevServerEntrypoints(config, options)
+const compiler = webpack(Object.assign({}, config, { mode: 'development' }))
+const server = new WebpackDevServer(compiler, options)
 
 server.listen(port, host, () => {
   console.log(`Starting server on ${host}:${port}`)
