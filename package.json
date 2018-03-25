@@ -3,6 +3,10 @@
   "workspaces": [
     "packages/@phaser-cli/*"
   ],
+  "scripts": {
+    "lerna": "lerna publish --skip-npm",
+    "deploy": "scripts/ci/deploy.sh"
+  },
   "devDependencies": {
     "lerna": "^2.9.0",
     "standard": "^11.0.0"
