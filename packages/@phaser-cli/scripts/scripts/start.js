@@ -9,8 +9,7 @@ const config = require('../config/webpack.config')
 const port = parseInt(process.env.PORT, 10) || 8080
 const host = process.env.HOST || '0.0.0.0'
 
-const server = new WebpackDevServer(webpack(config), {
-  mode: 'development',
+const server = new WebpackDevServer(webpack(Object.assign({}, config, { mode: 'development' })), {
   hot: true
 })
 
