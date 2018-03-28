@@ -4,7 +4,7 @@ process.env.NODE_ENV = 'production'
 
 const chalk = require('chalk')
 const webpack = require('webpack')
-const webpackConfig = require('../config/webpack.config')
+const webpackConfig = require('../config/webpack.config.prod')
 
 build()
   .then(({ stats, warnings }) => {
@@ -50,7 +50,7 @@ const formatWebpackMessages = json => {
 }
 
 function build () {
-  const compiler = webpack(Object.assign({}, webpackConfig, { mode: 'production' }))
+  const compiler = webpack(webpackConfig)
 
   return new Promise((resolve, reject) => {
     compiler.run((err, stats) => {
