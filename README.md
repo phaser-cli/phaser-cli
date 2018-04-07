@@ -5,9 +5,15 @@
 
 Create Phaser projects with no build configuration.
 
-## Usage
+## Getting Started
 
-Run the following commands too install Phaser CLI and create a new project. This
+### Prerequisites
+
+In order to use Phaser CLI you need to have [Node.js][1] (>= 6) installed.
+
+### Quickstart
+
+Run the following commands to install Phaser CLI and create a new project. This
 will create a new folder matching the specified `project-name` and will generate
 all the required files.
 
@@ -21,8 +27,9 @@ phaser create <project-name>
 
 ## Acknowledgements
 
-Phaser CLI is based on [Create React App][1] by Facebook and [vue-cli][2] by
+Phaser CLI is based on [Create React App][2] by Facebook and [vue-cli][3] by
 Evan You.
 
-[1]: https://github.com/facebook/create-react-app
-[2]: https://github.com/vuejs/vue-cli
+[1]: https://nodejs.org
+[2]: https://github.com/facebook/create-react-app
+[3]: https://github.com/vuejs/vue-cli
