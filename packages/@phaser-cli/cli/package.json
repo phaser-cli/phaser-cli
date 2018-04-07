@@ -1,6 +1,6 @@
 {
   "name": "@phaser-cli/cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [
     "phaser",
     "cli"
@@ -15,7 +15,7 @@
     "phaser": "./index.js"
   },
   "dependencies": {
-    "@phaser-cli/cli-shared-utils": "^1.0.0",
+    "@phaser-cli/cli-shared-utils": "^1.0.1",
     "cac": "^4.4.3",
     "chalk": "^2.3.2",
     "cross-spawn": "^6.0.5",
