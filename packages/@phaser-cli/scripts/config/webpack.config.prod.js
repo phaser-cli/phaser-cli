@@ -1,6 +1,38 @@
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const webpack = require('webpack')
 const paths = require('./paths')
+
+// Define plugin
+const definePluginOptions = {
+  'CANVAS_RENDERER': JSON.stringify(true),
+  'WEBGL_RENDERER': JSON.stringify(true)
+}
+
+// Html webpack plugin
+const htmlPluginOptions = {
+  inject: true,
+  template: paths.appHtml
+}
+
+// Clean webpack plugin
+const pathsToClean = ['build']
+const cleanOptions = {
+  root: paths.appPath
+}
+
+// Uglify js plugin
+const uglifyOptions = {
+  cache: true,
+  parallel: true,
+  uglifyOptions: {
+    ecma: 6,
+    output: {
+      comments: false
+    }
+  }
+}
 
 module.exports = {
   mode: 'production',
@@ -13,7 +45,7 @@ module.exports = {
   output: {
     path: paths.appBuild,
     publicPath: '/',
-    filename: 'js/[name].bundle.js'
+    filename: 'js/[name].[chunkhash:8].bundle.js'
   },
   module: {
     rules: [
@@ -39,26 +71,23 @@ module.exports = {
     ]
   },
   optimization: {
+    minimizer: [
+      new UglifyJsPlugin(uglifyOptions)
+    ],
     splitChunks: {
       cacheGroups: {
         commons: {
           test: /phaser/,
           name: 'vendor',
-          chunks: 'initial',
-          enforce: true
+          chunks: 'all'
         }
       }
     }
   },
   plugins: [
-    new webpack.DefinePlugin({
-      CANVAS_RENDERER: true,
-      WEBGL_RENDERER: true
-    }),
-    new HtmlWebpackPlugin({
-      inject: true,
-      template: paths.appHtml
-    })
+    new webpack.DefinePlugin(definePluginOptions),
+    new HtmlWebpackPlugin(htmlPluginOptions),
+    new CleanWebpackPlugin(pathsToClean, cleanOptions)
   ],
   resolve: {
     alias: {
