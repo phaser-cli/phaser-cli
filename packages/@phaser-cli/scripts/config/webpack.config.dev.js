@@ -2,15 +2,22 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const paths = require('./paths')
 
+// Define plugin
+const definePluginOptions = {
+  'CANVAS_RENDERER': JSON.stringify(true),
+  'WEBGL_RENDERER': JSON.stringify(true)
+}
+
+// Html webpack plugin
+const htmlPluginOptions = {
+  inject: true,
+  template: paths.appHtml
+}
+
 module.exports = {
   mode: 'development',
   devtool: 'inline-cheap-source-map',
-  entry: {
-    app: [
-      'phaser',
-      paths.appEntry
-    ]
-  },
+  entry: paths.appEntry,
   output: {
     path: paths.appBuild,
     publicPath: '/',
@@ -27,14 +34,14 @@ module.exports = {
         loader: 'file-loader',
         test: [/\.(png|jpg|gif)$/],
         options: {
-          name: 'assets/[name].[hash:8].[ext]'
+          name: 'assets/[name].[ext]'
         }
       },
       {
         loader: 'raw-loader',
         test: [/\.(vert|frag)$/],
         options: {
-          name: 'assets/[name].[hash:8].[ext]'
+          name: 'assets/[name].[ext]'
         }
       }
     ]
@@ -45,21 +52,14 @@ module.exports = {
         commons: {
           test: /phaser/,
           name: 'vendor',
-          chunks: 'initial',
-          enforce: true
+          chunks: 'all'
         }
       }
     }
   },
   plugins: [
-    new webpack.DefinePlugin({
-      CANVAS_RENDERER: true,
-      WEBGL_RENDERER: true
-    }),
-    new HtmlWebpackPlugin({
-      inject: true,
-      template: paths.appHtml
-    }),
+    new webpack.DefinePlugin(definePluginOptions),
+    new HtmlWebpackPlugin(htmlPluginOptions),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ],
