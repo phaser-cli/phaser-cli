@@ -1,4 +1,6 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const fs = require('fs')
 const webpack = require('webpack')
 const paths = require('./paths')
 
@@ -12,6 +14,17 @@ const definePluginOptions = {
 const htmlPluginOptions = {
   inject: true,
   template: paths.appHtml
+}
+
+// Copy webpack plugin
+const filesToCopy = []
+if (fs.existsSync(paths.appStatic)) {
+  filesToCopy.push({
+    context: paths.appPath,
+    from: 'static',
+    to: 'static',
+    cache: true
+  })
 }
 
 module.exports = {
@@ -61,7 +74,8 @@ module.exports = {
     new webpack.DefinePlugin(definePluginOptions),
     new HtmlWebpackPlugin(htmlPluginOptions),
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new CopyWebpackPlugin(filesToCopy)
   ],
   resolve: {
     alias: {

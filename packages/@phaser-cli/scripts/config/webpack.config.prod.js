@@ -1,6 +1,8 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const fs = require('fs')
 const webpack = require('webpack')
 const paths = require('./paths')
 
@@ -32,6 +34,17 @@ const uglifyOptions = {
       comments: false
     }
   }
+}
+
+// Copy webpack plugin
+const filesToCopy = []
+if (fs.existsSync(paths.appStatic)) {
+  filesToCopy.push({
+    context: paths.appPath,
+    from: 'static',
+    to: 'static',
+    cache: true
+  })
 }
 
 module.exports = {
@@ -87,7 +100,8 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin(definePluginOptions),
     new HtmlWebpackPlugin(htmlPluginOptions),
-    new CleanWebpackPlugin(pathsToClean, cleanOptions)
+    new CleanWebpackPlugin(pathsToClean, cleanOptions),
+    new CopyWebpackPlugin(filesToCopy)
   ],
   resolve: {
     alias: {

@@ -11,7 +11,8 @@ module.exports = {
   appBuild: resolveApp('build'),
   appEntry: resolveApp('src/main.js'),
   appSrc: resolveApp('src'),
-  appHtml: resolveApp('index.html')
+  appHtml: resolveApp('index.html'),
+  appStatic: resolveApp('static')
 }
 
 // @remove-on-eject-begin
