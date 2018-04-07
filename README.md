@@ -5,6 +5,22 @@
 A simple CLI for scaffolding Phaser projects. Based on
 [vue-cli](https://github.com/vuejs/vue-cli) by Evan You.
 
+## Notice
+
+This package is now deprecated in favour of [Phaser CLI](https://github.com/phaser-cli/phaser-cli).
+
+Please use the following commands to use the latest version of Phaser CLI.
+
+```bash
+npm install -g @phaser-cli/cli
+# or
+yarn global add @phaser-cli/cli
+
+phaser create <project-name>
+```
+
+## Old Guide
+
 ### Installation
 
 Prerequisites: [Node.js](https://nodejs.org/en/) (>=6.x required), npm version 3+ and [Git](https://git-scm.com/).
