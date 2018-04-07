@@ -1,0 +1,24 @@
+{
+  "name": "@phaser-cli/cli",
+  "version": "1.0.1",
+  "keywords": [
+    "phaser",
+    "cli"
+  ],
+  "description": "Create Phaser projects with no build configuration",
+  "repository": "phaser-cli/phaser-cli",
+  "license": "MIT",
+  "engines": {
+    "node": ">=6"
+  },
+  "bin": {
+    "phaser": "./index.js"
+  },
+  "dependencies": {
+    "@phaser-cli/cli-shared-utils": "^1.0.1",
+    "cac": "^4.4.3",
+    "chalk": "^2.3.2",
+    "cross-spawn": "^6.0.5",
+    "fs-extra": "^5.0.0"
+  }
+}

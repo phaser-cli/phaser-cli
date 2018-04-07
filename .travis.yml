@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+- 8
+- 9
+cache:
+  yarn: true
+  directories:
+  - node_modules
+script:
+  - yarn lint
+before_deploy:
+  - cd "./packages/@$(cut -d'@' -f2 <<<"$TRAVIS_TAG")"
+deploy:
+  provider: npm
+  email: "brendan@goodenough.nz"
+  api_key: "$NPM_TOKEN"
+  on:
+    tags: true
+env:
+  secure: iyd5ckQxXgIaDVcxF2I66yVJBBRTR82qzLnqUf7+9MC2wt19VjaqCey8u6aTDMU27AkhQ9T9D/wrcZKOu8AxFsAdKnpeWr7UacSoA9sjK0GgeNSsk1t0gZypL8jhaAJVONIcuUWQ3e606j5ncCMc2DEgeb1LYtnu8cuTDTn8DXljVo7xEds1mYbP9KK/sHZJzVbHy5oH+TxkBdQnCeGBwjVRLjn1R2omNptuBwKpy2nCbpnmF0uI7c7qlJBCLgzjpymsWONVy81WCDeIsQMim/0j2mydOYevuerr3z5tFCctegEZc2I/dAghLMahQC7iJMDUr383Dl84DlwqToAKU0/SY17WUISF1VIfhh8q1KLxLWZ/heZKWMPdmwR2/YVIo93W0o6rpRqBRTl4h6oKn8ouQHc5R4oZogeQJOnZHn8nIDHVpMKIJKa/FDPVSPUVYR5B558d9EdOT2FeoSrURX4MSpCI/OXNZaBKHXjRN597ip116jlnLr3bLRwHuMFPFyFC9BWj2NxbRC233RxI4gFi3PCXvwyA59IKwTFmF3AQJijm1kZL075FWvkVgPmKJ/XqSz7Dy2yCGnjhqfOIvTu1TifmufmOu9yUvxW7pTuxtEY2r+HMBWO+sj47ToOckBSb1KCx4E/Si2MtLaKjl1S3KDYVuO0xu7/Ssmgh71M=
