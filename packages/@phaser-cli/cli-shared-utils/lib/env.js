@@ -13,7 +13,7 @@ exports.hasYarn = () => {
 exports.isYarnOnline = (useYarn) => {
   // npm doesn't have offline cache so just assume it's online
   if (!useYarn) {
-    return true
+    return Promise.resolve(true)
   }
 
   return new Promise(resolve => {
