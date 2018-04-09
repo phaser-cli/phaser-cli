@@ -25,6 +25,27 @@ yarn global add @phaser-cli/cli
 phaser create <project-name>
 ```
 
+### Running in Development
+
+Running the following command will serve your project to [localhost:8080][4].
+
+```bash
+npm start
+```
+
+If you wish to change the host or the port of the dev server you can prepend
+the command with `HOST=127.0.0.1` or `PORT=3000`, replacing the example values
+with your own.
+
+### Building for Production
+
+The following command will build your game for production, bundling code and
+assets into the `/build` directory.
+
+```bash
+npm run build
+```
+
 ## Acknowledgements
 
 Phaser CLI is based on [Create React App][2] by Facebook and [vue-cli][3] by
@@ -33,3 +54,4 @@ Evan You.
 [1]: https://nodejs.org
 [2]: https://github.com/facebook/create-react-app
 [3]: https://github.com/vuejs/vue-cli
+[4]: http://localhost:8080
