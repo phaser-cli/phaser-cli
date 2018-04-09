@@ -27,7 +27,7 @@ phaser create <project-name>
 
 ### Running in Development
 
-Running the following command will serve your project to [localhost:8080][4].
+Running the following command will serve your project to [localhost:8080][2].
 
 ```bash
 npm start
@@ -48,10 +48,14 @@ npm run build
 
 ## Acknowledgements
 
-Phaser CLI is based on [Create React App][2] by Facebook and [vue-cli][3] by
+Phaser CLI is based on [Create React App][3] by Facebook and [vue-cli][4] by
 Evan You.
 
+[Phaser][5] is created by [Richard Davey][6].
+
 [1]: https://nodejs.org
-[2]: https://github.com/facebook/create-react-app
-[3]: https://github.com/vuejs/vue-cli
-[4]: http://localhost:8080
+[2]: http://localhost:8080
+[3]: https://github.com/facebook/create-react-app
+[4]: https://github.com/vuejs/vue-cli
+[5]: https://github.com/photonstorm/phaser
+[6]: https://twitter.com/photonstorm
