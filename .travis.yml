@@ -7,14 +7,15 @@ cache:
   directories:
   - node_modules
 script:
-  - yarn lint
+- yarn lint
 before_deploy:
-  - cd "./packages/@$(cut -d'@' -f2 <<<"$TRAVIS_TAG")"
+- cd "./packages/@$(cut -d'@' -f2 <<<"$TRAVIS_TAG")"
 deploy:
   provider: npm
-  email: "brendan@goodenough.nz"
+  email: brendan@goodenough.nz
   api_key: "$NPM_TOKEN"
   on:
     tags: true
 env:
-  secure: iyd5ckQxXgIaDVcxF2I66yVJBBRTR82qzLnqUf7+9MC2wt19VjaqCey8u6aTDMU27AkhQ9T9D/wrcZKOu8AxFsAdKnpeWr7UacSoA9sjK0GgeNSsk1t0gZypL8jhaAJVONIcuUWQ3e606j5ncCMc2DEgeb1LYtnu8cuTDTn8DXljVo7xEds1mYbP9KK/sHZJzVbHy5oH+TxkBdQnCeGBwjVRLjn1R2omNptuBwKpy2nCbpnmF0uI7c7qlJBCLgzjpymsWONVy81WCDeIsQMim/0j2mydOYevuerr3z5tFCctegEZc2I/dAghLMahQC7iJMDUr383Dl84DlwqToAKU0/SY17WUISF1VIfhh8q1KLxLWZ/heZKWMPdmwR2/YVIo93W0o6rpRqBRTl4h6oKn8ouQHc5R4oZogeQJOnZHn8nIDHVpMKIJKa/FDPVSPUVYR5B558d9EdOT2FeoSrURX4MSpCI/OXNZaBKHXjRN597ip116jlnLr3bLRwHuMFPFyFC9BWj2NxbRC233RxI4gFi3PCXvwyA59IKwTFmF3AQJijm1kZL075FWvkVgPmKJ/XqSz7Dy2yCGnjhqfOIvTu1TifmufmOu9yUvxW7pTuxtEY2r+HMBWO+sj47ToOckBSb1KCx4E/Si2MtLaKjl1S3KDYVuO0xu7/Ssmgh71M=
+  matrix:
+    secure: IYYGgwCx0lKAeVpQermQXLLLNjHkd9sc1D3WqFA4mO9Elw60zETsd2jBYQoPOxP/zteyXPR0jvz1V5bYg8u2zBgPsrjZxOyVt5IS+sDTaLF5R3uZOSJDXYntIUsFhHhf5/+R2l3DLff41YfiGuOPQLJUn1tvFZFVMK3O6Zu7kH7wGyjq7QlTMn7ztfTZq9fZV4BmZy+P1vCmy8M/pET+CWNQcGmRg+tw52lyt/2673oKh1QvLhaWx/+SEFzWtrRpqdi9ryCBdy56kXZfCsOE/MoSQqGLep1AiZEVfKg/2dv55WQhqBU+jR6CLDGlhcGGEuUL3kgMFlC53LZ8KKeKOlL46zP04XJVsBEMRH3QJ0qhUDpC9131rA7YANApdR2MNpFSSiqyCSnrINSCGk9T3hOkazQHBn8Sedguz9GGMjP6w6N5maTdR4KQaOnWof/AQohY2W7MT7/GEv6k9w8GunrHCLZ/5OYS9ddo6/W7UF0IHId9G5Mpr8Mi/VehEgY81iqX+EtcXrj7AWsqver3fPDghtHhq+NRJqqCHkRQEa4YQ/k3/vz7DHw2VUl/SuLDJ34SB3Cn7aSHbYFfTT+6GG3rb7E7BzNnKuOZIPHz+u2bKoPjaD8sl3VtOCGgtC2jQHK/Eb9m6iHtRJXJYjL3SRQ4KYS8s01sIvt12qJpaTs=
