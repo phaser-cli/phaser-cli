@@ -2,15 +2,15 @@ import { Scene } from 'phaser'
 import logo from '../assets/logo.png'
 
 export default class BootScene extends Scene {
-  constructor () {
+  constructor() {
     super({ key: 'BootScene' })
   }
 
-  preload () {
+  public preload() {
     this.load.image('logo', logo)
   }
 
-  create () {
+  public create() {
     this.scene.start('PlayScene')
   }
 }

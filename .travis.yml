@@ -1,19 +1,17 @@
 language: node_js
 node_js:
-- 8
-- 10
+  - 8
+  - 10
 cache:
   yarn: true
   directories:
-  - node_modules
-script:
-- yarn lint
+    - node_modules
 before_deploy:
-- cd "./packages/@$(cut -d'@' -f2 <<<"$TRAVIS_TAG")"
+  - cd "./packages/@$(cut -d'@' -f2 <<<"$TRAVIS_TAG")"
 deploy:
   provider: npm
   email: brendan@goodenough.nz
-  api_key: "$NPM_TOKEN"
+  api_key: '$NPM_TOKEN'
   on:
     tags: true
 env:
