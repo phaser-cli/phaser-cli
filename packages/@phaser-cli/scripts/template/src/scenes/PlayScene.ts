@@ -1,11 +1,11 @@
 import { Scene } from 'phaser'
 
 export default class PlayScene extends Scene {
-  constructor () {
+  constructor() {
     super({ key: 'PlayScene' })
   }
 
-  create () {
+  public create() {
     const logo = this.add.image(400, 150, 'logo')
 
     this.tweens.add({
@@ -14,7 +14,7 @@ export default class PlayScene extends Scene {
       duration: 2000,
       ease: 'Power2',
       yoyo: true,
-      loop: -1
+      loop: -1,
     })
   }
 }

@@ -15,8 +15,6 @@
     "phaser-scripts": "./bin/phaser-scripts.js"
   },
   "dependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.4",
     "chalk": "^2.3.2",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.1",
@@ -24,8 +22,14 @@
     "fs-extra": "^5.0.0",
     "html-webpack-plugin": "^3.0.6",
     "inquirer": "^5.1.0",
+    "prettier": "^1.16.4",
     "raw-loader": "^0.5.1",
     "standard": "^11.0.0",
+    "ts-loader": "^5.3.3",
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.3.3",
     "uglifyjs-webpack-plugin": "^1.2.4",
     "webpack": "^4.1.1",
     "webpack-dev-server": "^3.1.0"
