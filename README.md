@@ -17,6 +17,9 @@ Run the following commands to install Phaser CLI and create a new project. This
 will create a new folder matching the specified `project-name` and will generate
 all the required files.
 
+Currently the only boilerplate available to use is TypeScript, but this may
+change in the future.
+
 ```bash
 npm install -g @phaser-cli/cli
 # or
@@ -33,9 +36,9 @@ Running the following command will serve your project to [localhost:8080][2].
 npm start
 ```
 
-If you wish to change the host or the port of the dev server you can prepend
-the command with `HOST=127.0.0.1` or `PORT=3000`, replacing the example values
-with your own.
+If you wish to change the host or the port of the dev server you can prepend the
+command with `HOST=127.0.0.1` or `PORT=3000`, replacing the example values with
+your own.
 
 ### Building for Production
 
@@ -44,6 +47,19 @@ assets into the `/build` directory.
 
 ```bash
 npm run build
+```
+
+## Ejecting
+
+You also have the option to eject from phaser-cli allowing you to customise
+webpack and other config to your heart's content. This is not recommended unless
+you really need to change something.
+
+_Note: You will no longer receive updates through the @phaser-cli-scripts
+package if you choose to eject._
+
+```
+npm run eject
 ```
 
 ## Acknowledgements
