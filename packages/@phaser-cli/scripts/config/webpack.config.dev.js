@@ -39,7 +39,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: [/\.ts$/],
+        test: [/\.tsx?$/],
         use: 'ts-loader',
         include: paths.appSrc,
       },
