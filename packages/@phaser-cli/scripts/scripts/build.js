@@ -35,7 +35,9 @@ const formatMessage = (message, type) => {
 
 const formatWebpackMessages = json => {
   const errors = json.errors.map(message => formatMessage(message, 'error'))
-  const warnings = json.warnings.map(message => formatMessage(message, 'warning'))
+  const warnings = json.warnings.map(message =>
+    formatMessage(message, 'warning')
+  )
 
   if (errors.length > 1) {
     errors.length = 1
@@ -43,13 +45,13 @@ const formatWebpackMessages = json => {
 
   const result = {
     errors,
-    warnings
+    warnings,
   }
 
   return result
 }
 
-function build () {
+function build() {
   const compiler = webpack(webpackConfig)
 
   return new Promise((resolve, reject) => {
@@ -65,7 +67,7 @@ function build () {
 
       return resolve({
         stats,
-        warnings: messages.warnings
+        warnings: messages.warnings,
       })
     })
   })

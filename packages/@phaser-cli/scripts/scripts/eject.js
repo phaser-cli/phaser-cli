@@ -17,7 +17,7 @@ inquirer
     type: 'confirm',
     name: 'shouldEject',
     message: 'Are you sure you want to eject? This action is permanent',
-    default: false
+    default: false,
   })
   .then(answer => {
     if (!answer.shouldEject) {
@@ -49,9 +49,14 @@ inquirer
       }
 
       // Remove flagged sections of code
-      content = content.replace(/\/\/ @remove-on-eject-begin([\s\S]*?)\/\/ @remove-on-eject-end/gm, '')
+      content = content.replace(
+        /\/\/ @remove-on-eject-begin([\s\S]*?)\/\/ @remove-on-eject-end/gm,
+        ''
+      )
 
-      console.log(`Adding ${chalk.cyan(file.replace(ownPath, ''))} to the project`)
+      console.log(
+        `Adding ${chalk.cyan(file.replace(ownPath, ''))} to the project`
+      )
       fs.writeFileSync(file.replace(ownPath, appPath), content)
     })
 
@@ -62,7 +67,9 @@ inquirer
 
     if (appPackage.devDependencies) {
       if (appPackage.devDependencies[ownPackageName]) {
-        console.log(`  Removing ${chalk.cyan(ownPackageName)} from devDependencies`)
+        console.log(
+          `  Removing ${chalk.cyan(ownPackageName)} from devDependencies`
+        )
         delete appPackage.devDependencies[ownPackageName]
       }
     }
@@ -78,8 +85,15 @@ inquirer
     delete appPackage.scripts['eject']
 
     Object.keys(appPackage.scripts).forEach(key => {
-      console.log(`Replacing script ${chalk.cyan(`"phaser-scripts ${key}"`)} with ${chalk.cyan(`"node scripts/${key}.js"`)}`)
-      appPackage.scripts[key] = appPackage.scripts[key].replace('phaser-scripts ', 'node scripts/')
+      console.log(
+        `Replacing script ${chalk.cyan(
+          `"phaser-scripts ${key}"`
+        )} with ${chalk.cyan(`"node scripts/${key}.js"`)}`
+      )
+      appPackage.scripts[key] = appPackage.scripts[key].replace(
+        'phaser-scripts ',
+        'node scripts/'
+      )
     })
 
     Object.keys(ownPackage.dependencies).forEach(key => {
@@ -87,7 +101,10 @@ inquirer
       appPackage.devDependencies[key] = ownPackage.dependencies[key]
     })
 
-    fs.writeFileSync(path.join(appPath, 'package.json'), JSON.stringify(appPackage, null, 2) + os.EOL)
+    fs.writeFileSync(
+      path.join(appPath, 'package.json'),
+      JSON.stringify(appPackage, null, 2) + os.EOL
+    )
 
     console.log(chalk.green('Ejected successfully!'))
   })

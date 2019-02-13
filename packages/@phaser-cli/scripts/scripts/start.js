@@ -13,7 +13,7 @@ const options = {
   host,
   port,
   hot: true,
-  inline: true
+  inline: true,
 }
 
 WebpackDevServer.addDevServerEntrypoints(config, options)
