@@ -9,16 +9,16 @@ const resolveApp = relativePath => path.resolve(appDirectory, relativePath)
 module.exports = {
   appPath: resolveApp('.'),
   appBuild: resolveApp('build'),
-  appEntry: resolveApp('src/main.js'),
+  appEntry: resolveApp('src/main.ts'),
   appSrc: resolveApp('src'),
   appHtml: resolveApp('index.html'),
-  appStatic: resolveApp('static')
+  appStatic: resolveApp('static'),
 }
 
 // @remove-on-eject-begin
 const resolveOwn = relativePath => path.resolve(__dirname, '..', relativePath)
 
 module.exports = Object.assign({}, module.exports, {
-  ownPath: resolveOwn('.')
+  ownPath: resolveOwn('.'),
 })
 // @remove-on-eject-end
