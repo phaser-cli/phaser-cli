@@ -55,7 +55,7 @@ You also have the option to eject from phaser-cli allowing you to customise
 webpack and other config to your heart's content. This is not recommended unless
 you really need to change something.
 
-_Note: You will no longer receive updates through the @phaser-cli-scripts
+_Note: You will no longer receive updates through the @phaser-cli/scripts
 package if you choose to eject._
 
 ```
